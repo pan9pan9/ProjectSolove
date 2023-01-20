@@ -1,26 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { createTheme, ThemeProvider } from "@material-ui/core";
+import { useMemo } from "react";
 
-function App() {
+import "./App.css";
+import Home from "./Home";
+import MainHome from "./MainHome";
+import About from "./About";
+import Roadmap from "./Roadmap";
+// import Faq from "./Faq";
+import Header from "./Header";
+
+import { Route, Routes } from "react-router";
+
+
+const txTimeout = 30000; // milliseconds (confirm this works for your project)
+
+const theme = createTheme({
+    palette: {
+        type: 'dark',
+    },
+    overrides: {
+        MuiButtonBase: {
+            root: {
+                justifyContent: 'flex-start',
+            },
+        },
+        MuiButton: {
+            root: {
+                textTransform: undefined,
+                padding: '12px 16px',
+            },
+            startIcon: {
+                marginRight: 8,
+            },
+            endIcon: {
+                marginLeft: 8,
+            },
+        },
+    },
+});
+
+const App = () => {
+    // Custom RPC endpoint.
+
+    // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking and lazy loading --
+    // Only the wallets you configure here will be compiled into your application, and only the dependencies
+    // of wallets that your users connect to will be loaded.
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ThemeProvider theme={theme}>
+        <Header/>
+        <Routes>  
+          <Route path='/' element={<MainHome/>}></Route>
+          <Route path='/About' element={<About/>}></Route>
+          <Route path='/Roadmap' element={<Roadmap/>}></Route>
+          {/* <Route path='/Faq' element={<Faq/>}></Route> */}
+          <Route path="/Mint" element = {<Home/>}>
+          </Route>
+        </Routes>
+      </ThemeProvider>
   );
-}
+};
 
 export default App;
