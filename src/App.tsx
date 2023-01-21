@@ -55,8 +55,7 @@ const App = () => {
           <Route path='/About' element={<About/>}></Route>
           <Route path='/Roadmap' element={<Roadmap/>}></Route>
           {/* <Route path='/Faq' element={<Faq/>}></Route> */}
-          <Route path="/Mint" element = {<Home/>}>
-          </Route>
+          <Route path="/Mint" element = {<Home/>}></Route>
         </Routes>
       </ThemeProvider>
   );
