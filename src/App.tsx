@@ -6,6 +6,7 @@ import Home from "./Home";
 import MainHome from "./MainHome";
 import About from "./About";
 import Roadmap from "./Roadmap";
+import Faq from "./Faq";
 // import Faq from "./Faq";
 import Header from "./Header";
 
@@ -54,7 +55,7 @@ const App = () => {
           <Route path='/' element={<MainHome/>}></Route>
           <Route path='/About' element={<About/>}></Route>
           <Route path='/Roadmap' element={<Roadmap/>}></Route>
-          {/* <Route path='/Faq' element={<Faq/>}></Route> */}
+          <Route path='/Faq' element={<Faq/>}></Route>
           <Route path="/Mint" element = {<Home/>}></Route>
         </Routes>
       </ThemeProvider>
