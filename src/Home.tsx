@@ -87,30 +87,19 @@ function Home() {
   }, [tokenURI]);
 
   return (
-    <Container paddingY='10'>
-      <ConnectButton />
-
-      <Text marginTop='4'>This is the NFT we will be minting!</Text>
-
-      {imgURL ? (
+    <div className = 'mintwall'>
+      <Container paddingY='10'>
         <Box
           as={motion.div}
-          borderColor='gray.200'
-          borderWidth='1px'
-          width='fit-content'
-          marginTop='4'
-          padding='6'
-          shadow='md'
-          rounded='lg'
+          width= '50vw'
+          height= '50vh'
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Image src={imgURL} width='200px' />
+          <div className="mintcharactor"></div>
         </Box>
-      ) : (
-        <Skeleton marginTop='4' width='250px' height='250px' rounded='lg' />
-      )}
-
+      
+      <ConnectButton />
       <Button
         disabled={!isConnected || mintLoading}
         marginTop='6'
@@ -149,6 +138,7 @@ function Home() {
         </Text>
       )}
     </Container>
+    </div> 
   );
 }
 
